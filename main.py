@@ -101,7 +101,38 @@ class App(ctk.CTk):
         self.mqdtFrame.grid_forget()
         self.fullqcFrame.grid(row=1, column=1, rowspan=5, columnspan=5, sticky='nesw')
 
+    def switchToMHT(self):
+        self.yarrFrame.tunFrame.grid_forget()
+        self.yarrFrame.pfaFrame.grid_forget()
+        self.yarrFrame.mhtFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
 
+    def switchToTUN(self):
+        self.yarrFrame.mhtFrame.grid_forget()
+        self.yarrFrame.pfaFrame.grid_forget()
+        self.yarrFrame.tunFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
+
+    def switchToPFA(self):
+        self.yarrFrame.mhtFrame.grid_forget()
+        self.yarrFrame.tunFrame.grid_forget()
+        self.yarrFrame.pfaFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
+
+    def runEyeMHT(self):
+        print("Running Eye Diagram for MHT!")
+
+    def runDigMHT(self):
+        print("Running Digital Scan for MHT!")
+
+    def runAnaMHT(self):
+        print("Running Analog Scan for MHT!")
+
+    def runThreshMHT(self):
+        print("Running Threshold Scan HR for MHT!")
+
+    def runTotMHT(self):
+        print("Running TOT Scan for MHT!")
+
+    def runAllMHT(self):
+        print("Running full MHT scan procedure!")
 
     def onEnter1(self,event, custom_button):
         self.configure(fg_color="#f5efed")
