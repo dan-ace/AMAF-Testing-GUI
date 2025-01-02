@@ -13,12 +13,13 @@ figure out how to install tkinter safely and document it here.
 ```
 git clone https://github.com/dan-ace/AMAF-Testing-GUI.git
 ```
+...is what I would say if the command was working for me. For now you'll have to download the zip - sorry :(
 
-Just download the folder called 'forGUI' into the ITk folder of the desired testsetup,
+Just download the repository zip into the ITk folder of the desired testsetup,
 and it should have everything you need I guess.                                        
 example:
 ```
-/home/itktestsetupN/ITk/forGUI/
+/home/itktestsetupN/ITk/AMAF-Testing-GUI/
 ```
 I hope to integrate this into the AMAF_ITkTesting repository in the future, but with
 the way the GUI is right now, it doesn't really matter where you put the forGUI folder.
@@ -27,7 +28,7 @@ The gui uses absolute paths right now, so for now the user will have to replace
 
 # How to start the GUI
 ```
-cd /home/itktestsetupN/ITk/forGUI/             
+cd /home/itktestsetupN/ITk/AMAF-Testing-GUI/             
 python3.11 main.py 
 ```
 # How to use the GUI
@@ -75,6 +76,9 @@ If you choose to use the checkboxes to run tests, the order of the tests will go
 to second column (from top to bottom), then to third column (from top to bottom). I will try to make it so that you
 can change the order of the tests you select (like the first one you click would have a '1' next to it, and the second
 one will have a '2' next to it, and so on) but it will have to be added in the future.
+
+UPDATE: I am splitting the 'Yarr' tab into MHT, TUN, and PFA subtabs in order to make it cleaner. I also just don't
+like the checkboxes.
 
 # MQT
 
