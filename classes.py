@@ -162,37 +162,42 @@ class Yarr_MHT_Test_Frame(ctk.CTkFrame):
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
 
-        self.askForLocalDBLabel = myLabel(self, "#0d0b1e", 100, 20, "Upload to Local DB?: ", self.customFont)
+        self.selectModuleLabel = myLabel(self, "#0d0b1e", 100, 20, "Please select Module: ", self.customFont)
+        self.moduleSelection = ctk.CTkOptionMenu(self,values=["ANL_ITkPix_"+str(i) for i in range(1,46)],font=self.customFont)
+        self.selectModuleLabel.grid(row=0,column=3,sticky='w')
+        self.moduleSelection.grid(row=0,column=4)
+
+        self.askForLocalDBLabel = myLabel(self, "#0d0b1e", 100, 20, "  |  Upload to Local DB?: ", self.customFont)
         self.askForLocalDBVar = tkinter.IntVar(value=0)
         self.askForLocalDB_Yes = ctk.CTkRadioButton(self, text="Yes", variable=self.askForLocalDBVar, value=1, font=self.customFont)
         self.askForLocalDB_No = ctk.CTkRadioButton(self, text="No", variable=self.askForLocalDBVar, value=0, font=self.customFont)
 
-        self.askForLocalDBLabel.grid(row=0,column=3,sticky='w')
-        self.askForLocalDB_Yes.grid(row=0,column=4)
-        self.askForLocalDB_No.grid(row=0,column=5)
+        self.askForLocalDBLabel.grid(row=0,column=5,sticky='w')
+        self.askForLocalDB_Yes.grid(row=0,column=6)
+        self.askForLocalDB_No.grid(row=0,column=7)
 
         self.eyeDiagramLabel = myLabel(self, "#0d0b1e", 100, 30, "Eye Diagram ", self.customFont)
-        self.eyeArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.eyeArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.eyeDiagramLabel.grid(row=1,column=3,sticky='w')
         self.eyeArrow.grid(row=1,column=4)
 
         self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"Digital Scan ", self.customFont)
-        self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.digitalScanLabel.grid(row=2,column=3,sticky='w')
         self.digArrow.grid(row=2,column=4)
 
         self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Analog Scan ", self.customFont)
-        self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.analogScanLabel.grid(row=3,column=3,sticky='w')
         self.anaArrow.grid(row=3,column=4)
 
         self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100, 30, "Threshold Scan HR ", self.customFont)
-        self.threshArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.threshArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.threshScanHrLabel.grid(row=4,column=3,sticky='w')
         self.threshArrow.grid(row=4,column=4)
 
         self.totScanLabel = myLabel(self, '#0d0b1e', 100, 30, "TOT Scan ", self.customFont)
-        self.totArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.totArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.totScanLabel.grid(row=5,column=3,sticky='w')
         self.totArrow.grid(row=5,column=4)
 
