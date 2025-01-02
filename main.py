@@ -102,6 +102,7 @@ class App(ctk.CTk):
         self.fullqcFrame.grid(row=1, column=1, rowspan=5, columnspan=5, sticky='nesw')
 
 
+
     def onEnter1(self,event, custom_button):
         self.configure(fg_color="#f5efed")
         if not custom_button.is_clicked:

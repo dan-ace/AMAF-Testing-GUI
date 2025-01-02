@@ -1,5 +1,6 @@
 import tkinter
-import customtkinter as ctk # <- import the CustomTkinter module                                                                                                                
+import customtkinter as ctk # <- import the CustomTkinter module 
+from customWidgets import *                                                                                                               
 from tkinter import filedialog 
 from statistics import mean
 import numpy as np
@@ -10,226 +11,6 @@ from datetime import datetime
 from functools import reduce
 import time
 
-class myTitleButton1():
-    def __init__(self,
-                 parent,
-                 color,
-                 hoverColor,
-                 textColor,
-                 width,
-                 height,
-                 varText,
-                 font,
-                 functCommand=None,
-                 other_buttons=None,
-                 is_clicked=False):
-        self.parent=parent
-        self.varText=varText
-        self.width=width
-        self.height=height
-        self.color=color
-        self.hoverColor=hoverColor
-        self.functCommand=functCommand
-        self.font=font
-        self.textColor=textColor
-        self.is_clicked=is_clicked
-        self.other_buttons=other_buttons
-        self.button = ctk.CTkButton(parent,
-                                    text=varText,
-                                    font=self.font,
-                                    text_color=self.textColor,
-                                    fg_color=self.color,
-                                    corner_radius=2,
-                                    command=self.onClick,
-                                    hover_color=self.hoverColor,width=self.width,height=self.height)
-
-    def place(self, **kwargs):
-        self.button.place(**kwargs)
-
-    def grid(self, **kwargs):
-        self.button.grid(**kwargs)
-
-    def bind(self, sequence, func, add=None):
-        self.button.bind(sequence, func)
-
-    def configure(self, **kwargs):
-        self.button.configure(**kwargs)
-
-    def state(self, **kwargs):
-        self.button.state(**kwargs)
-
-    def getState(self):
-        return self.button.cget('state')
-
-    def onClick(self):
-        if not self.is_clicked:
-            self.is_clicked=True
-            for other_button in self.other_buttons:
-                other_button.is_clicked = False
-                other_button.button.configure(text_color='#d6d1cd')
-            if self.functCommand:
-                self.functCommand()
-
-class myTitleButton2():
-    def __init__(self,
-                 parent,
-                 color,
-                 hoverColor,
-                 textColor,
-                 width,
-                 height,
-                 varText,
-                 font,
-                 functCommand=None,
-                 other_buttons=None,
-                 is_clicked=False):
-        self.parent=parent
-        self.varText=varText
-        self.width=width
-        self.height=height
-        self.color=color
-        self.hoverColor=hoverColor
-        self.functCommand=functCommand
-        self.font=font
-        self.textColor=textColor
-        self.is_clicked=is_clicked
-        self.other_buttons=other_buttons
-        self.button = ctk.CTkButton(parent,
-                                    text=varText,
-                                    font=self.font,
-                                    text_color=self.textColor,
-                                    fg_color=self.color,
-                                    corner_radius=2,
-                                    command=self.onClick,
-                                    hover_color=self.hoverColor,
-                                    width=self.width,
-                                    height=self.height)
-
-    def place(self, **kwargs):
-        self.button.place(**kwargs)
-
-    def grid(self, **kwargs):
-        self.button.grid(**kwargs)
-
-    def bind(self, sequence, func, add=None):
-        self.button.bind(sequence, func)
-
-    def configure(self, **kwargs):
-        self.button.configure(**kwargs)
-
-    def state(self, **kwargs):
-        self.button.state(**kwargs)
-
-    def getState(self):
-        return self.button.cget('state')
-
-    def onClick(self):
-        if not self.is_clicked:
-            self.is_clicked=True
-            for other_button in self.other_buttons:
-                other_button.is_clicked = False
-                other_button.button.configure(text_color='#666666')
-            if self.functCommand:
-                self.functCommand()
-
-class myButton():
-    def __init__(self,
-                 parent,
-                 color,
-                 hoverColor,
-                 textColor,
-                 width,
-                 height,
-                 varText,
-                 font,
-                 functCommand=None,
-                 cornerRad=10):
-        self.parent=parent
-        self.varText=varText
-        self.width=width
-        self.height=height
-        self.color=color
-        self.hoverColor=hoverColor
-        self.functCommand=functCommand
-        self.font=font
-        self.textColor=textColor
-        self.cornerRad=cornerRad
-        self.button = ctk.CTkButton(parent,
-                                    text=varText,
-                                    font=self.font,
-                                    text_color=self.textColor,
-                                    fg_color=self.color,
-                                    corner_radius=self.cornerRad,
-                                    command=self.onClick,
-                                    hover_color=self.hoverColor,
-                                    width=self.width,
-                                    height=self.height)
-
-    def place(self, **kwargs):
-        self.button.place(**kwargs)
-
-    def grid(self, **kwargs):
-        self.button.grid(**kwargs)
-
-    def bind(self, sequence, func, add=None):
-        self.button.bind(sequence, func)
-
-    def configure(self, **kwargs):
-        self.button.configure(**kwargs)
-
-    def state(self, **kwargs):
-        self.button.state(**kwargs)
-
-    def getState(self):
-        return self.button.cget('state')
-
-    def onClick(self):
-        if self.functCommand:
-            self.functCommand()
-
-class myLabel():
-    def __init__(self, parent, color, width, height, varText, font):
-
-        self.parent=parent
-        self.varText=varText
-        self.color=color
-        self.width=width
-        self.height=height
-        self.font=font
-        self.label = ctk.CTkLabel(parent,
-                                  text=self.varText,
-                                  text_color=self.color,
-                                  width=self.width,
-                                  height=self.height,
-                                  font=self.font)
-
-
-    def grid(self, **kwargs):
-        self.label.grid(**kwargs)
-
-    def bind(self, **kwargs):
-        self.label.bind(**kwargs)
-
-class mySwitch(ctk.CTkSwitch):
-    def __init__(self, parent, **kwargs):
-        super().__init__(parent,
-                         font=ctk.CTkFont("Roboto",20),
-                         progress_color='#61d095',
-                         button_color='#F5e5ed',
-                         button_hover_color='#d6d1cd',
-                         fg_color='#ed6a5a',
-                         **kwargs)
-
-class myCheckBox(ctk.CTkCheckBox):
-    def __init__(self, parent, **kwargs):
-        super().__init__(parent,
-                         onvalue="on",
-                         offvalue="off",
-                         fg_color="#61d095",
-                         hover_color='#2f9d62',
-                         text_color="#0d0b1e",
-                         font=ctk.CTkFont("Roboto",15),
-                         **kwargs)
 
 class Selection_Bar(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
@@ -369,19 +150,78 @@ class Yarr_Test_Frame(ctk.CTkFrame):
         self.retuneAndZeroBiasThreshScanCheckBox_PFA.grid(row=11, column=7, columnspan=2, sticky='w')
         self.sourceScanCheckBox_PFA.grid(row=13, column=7, columnspan=2, sticky='w')
 
+class Yarr_MHT_Test_Frame(ctk.CTkFrame):
+    def __init__(self, parent, app, **kwargs):
+
+        self.app = app
+        super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
+
+        self.customFont = ctk.CTkFont("Roboto",30)
+
+        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
+        self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
+
+        self.eyeDiagramLabel = myLabel(self, "#0d0b1e", 100, 30, "Eye Diagram ", self.customFont)
+        self.eyeArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.eyeDiagramLabel.grid(row=0,column=3,sticky='w')
+        self.eyeArrow.grid(row=0,column=4)
+
+        self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"Digital Scan ", self.customFont)
+        self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.digitalScanLabel.grid(row=1,column=3,sticky='w')
+        self.digArrow.grid(row=1,column=4)
+
+        self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Analog Scan ", self.customFont)
+        self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.analogScanLabel.grid(row=2,column=3,sticky='w')
+        self.anaArrow.grid(row=2,column=4)
+
+        self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100, 30, "Threshold Scan HR ", self.customFont)
+        self.threshArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.threshScanHrLabel.grid(row=3,column=3,sticky='w')
+        self.threshArrow.grid(row=3,column=4)
+
+        self.totScanLabel = myLabel(self, '#0d0b1e', 100, 30, "TOT Scan ", self.customFont)
+        self.totArrow = myLabel(self, "#0d0b1e", 100, 30, "-----------------> ", self.customFont)
+        self.totScanLabel.grid(row=4,column=3,sticky='w')
+        self.totArrow.grid(row=4,column=4)
+
+class Yarr_TUN_Test_Frame(ctk.CTkFrame):
+    def __init__(self, parent, app, **kwargs):
+
+        self.app = app
+        super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
+
+        self.customFont = ctk.CTkFont("Roboto",30)
+
+        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
+        self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
+
+
+class Yarr_PFA_Test_Frame(ctk.CTkFrame):
+    def __init__(self, parent, app, **kwargs):
+
+        self.app = app
+        super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
+
+        self.customFont = ctk.CTkFont("Roboto",30)
+
+        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
+        self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
+
+
+
 class Yarr_Selection_Bar(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
 
         self.app = app
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
 
-        self.customFont = ctk.CTkFont("Roboto",20)
+        self.customFont = ctk.CTkFont("Roboto",25)
 
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
 
-        self.borderFrame = ctk.CTkFrame(self, height=5, fg_color='#0d0b1e', corner_radius=2)
-        self.borderFrame.grid(row=8,column=0,columnspan=11,sticky='esw')
         self.mhtButton = myTitleButton1(self,'#f5efed','#f5efed','#0d0b1e',100,30,"MHT",self.customFont,self.mhtButtonFunction, is_clicked=True)
         self.tunButton = myTitleButton1(self,'#f5efed','#f5efed','#d6d1cd',100,30,"TUN",self.customFont,self.tunButtonFunction)
         self.pfaButton = myTitleButton1(self,'#f5efed','#f5efed','#d6d1cd',100,30,"PFA",self.customFont,self.pfaButtonFunction)
@@ -418,8 +258,6 @@ class Yarr_Selection_Bar(ctk.CTkFrame):
     def allTestsButtonFunction(self):
         self.app.moveToChip1()
         
-
-
 class Yarr_AllTests_Frame(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
@@ -478,13 +316,19 @@ class Yarr_Frame(ctk.CTkFrame):
         self.app = app
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
 
-        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8, 9, 10, 11, 12), weight=1)
-        self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10,11), weight=1)
+        self.grid_rowconfigure((0,1,2,3,4,5), weight=1)
+        self.grid_columnconfigure((0,1,2,3,4,5), weight=1)
 
         self.selectionBar = Yarr_Selection_Bar(parent=self, app=app)
-        self.selectionBar.grid(row=0,column=0, rowspan=13, sticky='nesw')
+        self.selectionBar.grid(row=0,column=0, sticky='nesw')
 
-   
+        self.mhtFrame = Yarr_MHT_Test_Frame(parent=self, app=app)
+        self.mhtFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
+
+        self.tunFrame = Yarr_TUN_Test_Frame(parent=self, app=app)
+
+        self.pfaFrame = Yarr_PFA_Test_Frame(parent=self, app=app)
+
 class MQT_Frame(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
