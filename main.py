@@ -104,17 +104,26 @@ class App(ctk.CTk):
     def switchToMHT(self):
         self.yarrFrame.tunFrame.grid_forget()
         self.yarrFrame.pfaFrame.grid_forget()
+        self.yarrFrame.allTestsFrame.grid_forget()
         self.yarrFrame.mhtFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
 
     def switchToTUN(self):
         self.yarrFrame.mhtFrame.grid_forget()
         self.yarrFrame.pfaFrame.grid_forget()
+        self.yarrFrame.allTestsFrame.grid_forget()
         self.yarrFrame.tunFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
 
     def switchToPFA(self):
         self.yarrFrame.mhtFrame.grid_forget()
         self.yarrFrame.tunFrame.grid_forget()
+        self.yarrFrame.allTestsFrame.grid_forget()
         self.yarrFrame.pfaFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
+
+    def switchToAllTests(self):
+        self.yarrFrame.mhtFrame.grid_forget()
+        self.yarrFrame.tunFrame.grid_forget()
+        self.yarrFrame.pfaFrame.grid_forget()
+        self.yarrFrame.allTestsFrame.grid(row=1,column=0,rowspan=5,sticky='nesw')
 
     def runEyeMHT(self):
         print("Running Eye Diagram for MHT!")

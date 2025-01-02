@@ -248,6 +248,21 @@ class Yarr_TUN_Test_Frame(ctk.CTkFrame):
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
 
+        self.selectModuleLabel = myLabel(self, "#0d0b1e", 100, 20, "Please select Module: ", self.customFont)
+        self.moduleSelection = ctk.CTkOptionMenu(self,values=["ANL_ITkPix_"+str(i) for i in range(1,46)],font=self.customFont)
+        self.selectModuleLabel.grid(row=0,column=3,sticky='w')
+        self.moduleSelection.grid(row=0,column=4)
+
+        self.askForLocalDBLabel = myLabel(self, "#0d0b1e", 100, 20, "  |  Upload to Local DB?: ", self.customFont)
+        self.askForLocalDBVar = tkinter.IntVar(value=0)
+        self.askForLocalDB_Yes = ctk.CTkRadioButton(self, text="Yes", variable=self.askForLocalDBVar, value=1, font=self.customFont)
+        self.askForLocalDB_No = ctk.CTkRadioButton(self, text="No", variable=self.askForLocalDBVar, value=0, font=self.customFont)
+
+        self.askForLocalDBLabel.grid(row=0,column=5,sticky='w')
+        self.askForLocalDB_Yes.grid(row=0,column=6)
+        self.askForLocalDB_No.grid(row=0,column=7)
+
+
 
 class Yarr_PFA_Test_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
@@ -313,13 +328,15 @@ class Yarr_Selection_Bar(ctk.CTkFrame):
     def pfaButtonFunction(self):
         self.app.switchToPFA()
     def allTestsButtonFunction(self):
-        self.app.moveToChip1()
+        self.app.switchToAllTests()
         
 class Yarr_AllTests_Frame(ctk.CTkFrame):
-    def __init__(self, parent, **kwargs):
+    def __init__(self, parent, app, **kwargs):
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
 
         self.customFont = ctk.CTkFont("Roboto",20)
+
+        self.app=app
 
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8, 9, 10, 11, 12), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10,11), weight=1)
@@ -344,28 +361,28 @@ class Yarr_AllTests_Frame(ctk.CTkFrame):
         #self.TestFrameTitle.grid(row=1, column=1)
         self.TestFrame.grid(row=1, column=1, columnspan=10, rowspan=5, sticky="nesw")
 
-        self.runSelectMHTTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nMHT Tests", self.customFont,parent.moveToChip1, cornerRad=10)
-        self.runAllMHTTests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nMHT Tests", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runSelectMHTTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nMHT Tests", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runAllMHTTests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nMHT Tests", self.customFont,parent.moveToChip1, cornerRad=10)
 
-        self.runSelectTUNTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nTUN Tests", self.customFont,parent.moveToChip1, cornerRad=10)
-        self.runAllTUNTests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nTUN Tests", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runSelectTUNTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nTUN Tests", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runAllTUNTests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nTUN Tests", self.customFont,parent.moveToChip1, cornerRad=10)
 
-        self.runSelectPFATests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nPFA Tests", self.customFont,parent.moveToChip1, cornerRad=10)
-        self.runAllPFATests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nPFA Tests", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runSelectPFATests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nPFA Tests", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runAllPFATests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nPFA Tests", self.customFont,parent.moveToChip1, cornerRad=10)
 
 
-        self.runSelectMHTTests.grid(row=7, column=1, columnspan=2)
-        self.runAllMHTTests.grid(row=8, column=1, columnspan=2)
+        #self.runSelectMHTTests.grid(row=7, column=1, columnspan=2)
+        #self.runAllMHTTests.grid(row=8, column=1, columnspan=2)
 
-        self.runSelectTUNTests.grid(row=7, column=4, columnspan=3)
-        self.runAllTUNTests.grid(row=8, column=4, columnspan=3)
+        #self.runSelectTUNTests.grid(row=7, column=4, columnspan=3)
+        #self.runAllTUNTests.grid(row=8, column=4, columnspan=3)
 
-        self.runSelectPFATests.grid(row=7, column=8, columnspan=3)
-        self.runAllPFATests.grid(row=8, column=8, columnspan=3)
+        #self.runSelectPFATests.grid(row=7, column=8, columnspan=3)
+        #self.runAllPFATests.grid(row=8, column=8, columnspan=3)
 
-        self.runAllYarrTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 500, 60, "Run All YARR Tests\n(without Source Scan)", self.customFont,parent.moveToChip1, cornerRad=10)
+        #self.runAllYarrTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 500, 60, "Run All YARR Tests\n(without Source Scan)", self.customFont,parent.moveToChip1, cornerRad=10)
 
-        self.runAllYarrTests.grid(row=9, column=0, columnspan=12)
+        #self.runAllYarrTests.grid(row=9, column=0, columnspan=12)
 
 class Yarr_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
@@ -385,6 +402,8 @@ class Yarr_Frame(ctk.CTkFrame):
         self.tunFrame = Yarr_TUN_Test_Frame(parent=self, app=app)
 
         self.pfaFrame = Yarr_PFA_Test_Frame(parent=self, app=app)
+
+        self.allTestsFrame = Yarr_AllTests_Frame(parent=self,app=app)
 
 class MQT_Frame(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
