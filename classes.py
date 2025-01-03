@@ -150,7 +150,7 @@ class Yarr_Test_Frame(ctk.CTkFrame):
         self.retuneAndZeroBiasThreshScanCheckBox_PFA.grid(row=11, column=7, columnspan=2, sticky='w')
         self.sourceScanCheckBox_PFA.grid(row=13, column=7, columnspan=2, sticky='w')
 
-class Yarr_MHT_Test_Frame(ctk.CTkFrame):
+class Yarr_MHT_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
 
         self.app = app
@@ -163,7 +163,7 @@ class Yarr_MHT_Test_Frame(ctk.CTkFrame):
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
 
         self.selectModuleLabel = myLabel(self, "#0d0b1e", 100, 20, "Please select Module: ", self.customFont)
-        self.moduleSelection = ctk.CTkOptionMenu(self,values=["ANL_ITkPix_"+str(i) for i in range(1,46)],font=self.customFont)
+        self.moduleSelection = ctk.CTkComboBox(self,values=[str(i) for i in range(1,46)],font=self.customFont)
         self.selectModuleLabel.grid(row=0,column=3,sticky='w')
         self.moduleSelection.grid(row=0,column=4)
 
@@ -237,7 +237,7 @@ class Yarr_MHT_Test_Frame(ctk.CTkFrame):
     def runAllFunc(self):
         self.app.runAllMHT()
 
-class Yarr_TUN_Test_Frame(ctk.CTkFrame):
+class Yarr_TUN_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
 
         self.app = app
@@ -262,9 +262,44 @@ class Yarr_TUN_Test_Frame(ctk.CTkFrame):
         self.askForLocalDB_Yes.grid(row=0,column=6)
         self.askForLocalDB_No.grid(row=0,column=7)
 
+        self.clearChipConfigLabel = myLabel(self, "#f8333c", 100, 30, "Clear Chip Config ", self.customFont)
+        self.clearChipConfigArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.clearChipConfigLabel.grid(row=1,column=3,sticky='w')
+        self.clearChipConfigArrow.grid(row=1,column=4)
+
+        self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100,30,"Threshold Scan HR ", self.customFont)
+        self.threshHrArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.threshScanHrLabel.grid(row=2,column=3,sticky='w')
+        self.threshHrArrow.grid(row=2,column=4)
+
+        self.preTotScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Pre-Tune TOT Scan ", self.customFont)
+        self.preTotArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.preTotScanLabel.grid(row=3,column=3,sticky='w')
+        self.preTotArrow.grid(row=3,column=4)
+
+        self.tuneGlobalThreshLabel = myLabel(self, '#0d0b1e', 100, 30, "Tune Global Threshold ", self.customFont)
+        self.tuneGlobalThreshArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.tuneGlobalThreshLabel.grid(row=4,column=3,sticky='w')
+        self.tuneGlobalThreshArrow.grid(row=4,column=4)
+
+        self.tunePixelThreshLabel = myLabel(self, '#0d0b1e', 100, 30, "Tune Pixel Threshold ", self.customFont)
+        self.tunePixelThreshArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.tunePixelThreshLabel.grid(row=5,column=3,sticky='w')
+        self.tunePixelThreshArrow.grid(row=5,column=4)
+
+        self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100,30,"Threshold Scan HD ", self.customFont)
+        self.threshHdArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.threshScanHdLabel.grid(row=6,column=3,sticky='w')
+        self.threshHdArrow.grid(row=6,column=4)
+
+        self.postTotScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Post-Tune TOT Scan ", self.customFont)
+        self.postTotArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.postTotScanLabel.grid(row=7,column=3,sticky='w')
+        self.postTotArrow.grid(row=7,column=4)
 
 
-class Yarr_PFA_Test_Frame(ctk.CTkFrame):
+
+class Yarr_PFA_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
 
         self.app = app
@@ -274,6 +309,57 @@ class Yarr_PFA_Test_Frame(ctk.CTkFrame):
 
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
+
+        self.selectModuleLabel = myLabel(self, "#0d0b1e", 100, 20, "Please select Module: ", self.customFont)
+        self.moduleSelection = ctk.CTkOptionMenu(self,values=["ANL_ITkPix_"+str(i) for i in range(1,46)],font=self.customFont)
+        self.selectModuleLabel.grid(row=0,column=3,sticky='w')
+        self.moduleSelection.grid(row=0,column=4)
+
+        self.askForLocalDBLabel = myLabel(self, "#0d0b1e", 100, 20, "  |  Upload to Local DB?: ", self.customFont)
+        self.askForLocalDBVar = tkinter.IntVar(value=0)
+        self.askForLocalDB_Yes = ctk.CTkRadioButton(self, text="Yes", variable=self.askForLocalDBVar, value=1, font=self.customFont)
+        self.askForLocalDB_No = ctk.CTkRadioButton(self, text="No", variable=self.askForLocalDBVar, value=0, font=self.customFont)
+
+        self.askForLocalDBLabel.grid(row=0,column=5,sticky='w')
+        self.askForLocalDB_Yes.grid(row=0,column=6)
+        self.askForLocalDB_No.grid(row=0,column=7)
+
+        self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"Digital Scan ", self.customFont)
+        self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.digitalScanLabel.grid(row=2,column=3,sticky='w')
+        self.digArrow.grid(row=2,column=4)
+
+        self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Analog Scan ", self.customFont)
+        self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.analogScanLabel.grid(row=3,column=3,sticky='w')
+        self.anaArrow.grid(row=3,column=4)
+
+        self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100, 30, "Threshold Scan HD ", self.customFont)
+        self.threshHdArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.threshScanHdLabel.grid(row=4,column=3,sticky='w')
+        self.threshHdArrow.grid(row=4,column=4)
+
+        self.noiseScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Noise Scan ", self.customFont)
+        self.noiseScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.noiseScanLabel.grid(row=5,column=3,sticky='w')
+        self.noiseScanArrow.grid(row=5,column=4)
+
+        self.discBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Disconnected Bump Scan ", self.customFont)
+        self.discBumpScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.discBumpScanLabel.grid(row=6,column=3,sticky='w')
+        self.discBumpScanArrow.grid(row=6,column=4)
+
+        self.mergedBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Merged Bump Scan ", self.customFont)
+        self.mergedBumpScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.mergedBumpScanLabel.grid(row=7,column=3,sticky='w')
+        self.mergedBumpScanArrow.grid(row=7,column=4)
+
+        self.reTune_ZeroBias_ResetLabel = myLabel(self, '#0d0b1e', 100, 30, 
+                                                  "Retune Pixel Threshold\nZero Bias Thresh. Scan\nReset Chip Configs",
+                                                  self.customFont)
+        self.reTune_ZeroBias_ResetArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.reTune_ZeroBias_ResetLabel.grid(row=8,column=3,sticky='w')
+        self.reTune_ZeroBias_ResetArrow.grid(row=8,column=4)
 
 
 
@@ -396,12 +482,12 @@ class Yarr_Frame(ctk.CTkFrame):
         self.selectionBar = Yarr_Selection_Bar(parent=self, app=app)
         self.selectionBar.grid(row=0,column=0, sticky='nesw')
 
-        self.mhtFrame = Yarr_MHT_Test_Frame(parent=self, app=app)
+        self.mhtFrame = Yarr_MHT_Frame(parent=self, app=app)
         self.mhtFrame.grid(row=1,column=0, rowspan=5, sticky='nesw')
 
-        self.tunFrame = Yarr_TUN_Test_Frame(parent=self, app=app)
+        self.tunFrame = Yarr_TUN_Frame(parent=self, app=app)
 
-        self.pfaFrame = Yarr_PFA_Test_Frame(parent=self, app=app)
+        self.pfaFrame = Yarr_PFA_Frame(parent=self, app=app)
 
         self.allTestsFrame = Yarr_AllTests_Frame(parent=self,app=app)
 
