@@ -244,6 +244,7 @@ class Yarr_TUN_Frame(ctk.CTkFrame):
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
 
         self.customFont = ctk.CTkFont("Roboto",30)
+        self.buttonFont = ctk.CTkFont("Roboto",20)
 
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
@@ -297,7 +298,49 @@ class Yarr_TUN_Frame(ctk.CTkFrame):
         self.postTotScanLabel.grid(row=7,column=3,sticky='w')
         self.postTotArrow.grid(row=7,column=4)
 
+        self.clearChipConfigButton = myButton(self,'#f8333c','#c50711', '#0d0b1e', 200, 60, "Clear Chip Config", self.buttonFont,self.clearChipConfigFunc, cornerRad=10)
+        self.clearChipConfigButton.grid(row=1, column=5, columnspan=3)
 
+        self.runThreshHrButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nThreshold Scan HR", self.buttonFont,self.runThreshHrFunc, cornerRad=10)
+        self.runThreshHrButton.grid(row=2, column=5, columnspan=3)
+
+        self.runPreTotButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Pre-Tune\nTOT Scan", self.buttonFont,self.runPreTotFunc, cornerRad=10)
+        self.runPreTotButton.grid(row=3, column=5, columnspan=3)
+
+        self.tuneGlobalThreshButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Tune Global\nThreshold", self.buttonFont,self.tuneGlobalThreshFunc, cornerRad=10)
+        self.tuneGlobalThreshButton.grid(row=4, column=5, columnspan=3)
+
+        self.tunePixelThreshButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Tune Pixel\nThreshold", self.buttonFont,self.tunePixelThreshFunc, cornerRad=10)
+        self.tunePixelThreshButton.grid(row=5, column=5, columnspan=3)
+
+        self.runThreshHdButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nThreshold Scan HD", self.buttonFont,self.runThreshHdFunc, cornerRad=10)
+        self.runThreshHdButton.grid(row=6, column=5, columnspan=3)
+
+        self.runPostTotButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Post-Tune\nTOT Scan", self.buttonFont,self.runPostTotFunc, cornerRad=10)
+        self.runPostTotButton.grid(row=7, column=5, columnspan=3)
+
+    def clearChipConfigFunc(self):
+        self.app.clearChipConfigTUN()
+
+    def runThreshHrFunc(self):
+        self.app.runThreshHrTUN()
+
+    def runPreTotFunc(self):
+        self.app.runPreTotScanTUN()
+
+    def tuneGlobalThreshFunc(self):
+        self.app.tuneGlobalThreshTUN()
+
+    def tunePixelThreshFunc(self):
+        self.app.tunePixelThreshTUN()
+
+    def runThreshHdFunc(self):
+        self.app.runThreshHdTUN()
+
+    def runPostTotFunc(self):
+        self.app.runPostTotScanTUN()
+
+        
 
 class Yarr_PFA_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
@@ -306,8 +349,9 @@ class Yarr_PFA_Frame(ctk.CTkFrame):
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
 
         self.customFont = ctk.CTkFont("Roboto",30)
+        self.buttonFont = ctk.CTkFont("Roboto",20)
 
-        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
+        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
 
         self.selectModuleLabel = myLabel(self, "#0d0b1e", 100, 20, "Please select Module: ", self.customFont)
@@ -326,42 +370,93 @@ class Yarr_PFA_Frame(ctk.CTkFrame):
 
         self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"Digital Scan ", self.customFont)
         self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.digitalScanLabel.grid(row=2,column=3,sticky='w')
-        self.digArrow.grid(row=2,column=4)
+        self.digitalScanLabel.grid(row=1,column=3,sticky='w')
+        self.digArrow.grid(row=1,column=4)
 
         self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Analog Scan ", self.customFont)
         self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.analogScanLabel.grid(row=3,column=3,sticky='w')
-        self.anaArrow.grid(row=3,column=4)
+        self.analogScanLabel.grid(row=2,column=3,sticky='w')
+        self.anaArrow.grid(row=2,column=4)
 
         self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100, 30, "Threshold Scan HD ", self.customFont)
         self.threshHdArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.threshScanHdLabel.grid(row=4,column=3,sticky='w')
-        self.threshHdArrow.grid(row=4,column=4)
+        self.threshScanHdLabel.grid(row=3,column=3,sticky='w')
+        self.threshHdArrow.grid(row=3,column=4)
 
         self.noiseScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Noise Scan ", self.customFont)
         self.noiseScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.noiseScanLabel.grid(row=5,column=3,sticky='w')
-        self.noiseScanArrow.grid(row=5,column=4)
+        self.noiseScanLabel.grid(row=4,column=3,sticky='w')
+        self.noiseScanArrow.grid(row=4,column=4)
 
         self.discBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Disconnected Bump Scan ", self.customFont)
         self.discBumpScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.discBumpScanLabel.grid(row=6,column=3,sticky='w')
-        self.discBumpScanArrow.grid(row=6,column=4)
+        self.discBumpScanLabel.grid(row=5,column=3,sticky='w')
+        self.discBumpScanArrow.grid(row=5,column=4)
 
         self.mergedBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Merged Bump Scan ", self.customFont)
         self.mergedBumpScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.mergedBumpScanLabel.grid(row=7,column=3,sticky='w')
-        self.mergedBumpScanArrow.grid(row=7,column=4)
+        self.mergedBumpScanLabel.grid(row=6,column=3,sticky='w')
+        self.mergedBumpScanArrow.grid(row=6,column=4)
 
         self.reTune_ZeroBias_ResetLabel = myLabel(self, '#0d0b1e', 100, 30, 
-                                                  "Retune Pixel Threshold\nZero Bias Thresh. Scan\nReset Chip Configs",
+                                                  "Retune Pixel Threshold/\nZero Bias Thresh. Scan/\nReset Chip Configs",
                                                   self.customFont)
         self.reTune_ZeroBias_ResetArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
-        self.reTune_ZeroBias_ResetLabel.grid(row=8,column=3,sticky='w')
-        self.reTune_ZeroBias_ResetArrow.grid(row=8,column=4)
+        self.reTune_ZeroBias_ResetLabel.grid(row=7,column=3,sticky='w')
+        self.reTune_ZeroBias_ResetArrow.grid(row=7,column=4)
 
+        self.sourceScanLabel = myLabel(self, '#0d0b1e', 100, 30, "50 min. Source Scan ", self.customFont)
+        self.sourceScanArrow = myLabel(self, '#0d0b1e', 100, 30, "-------------------------> ", self.customFont)
+        self.sourceScanLabel.grid(row=8, column=3, sticky='w')
+        self.sourceScanArrow.grid(row=8, column=4, sticky='w')
 
+        self.runDigButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nDigital Scan", self.buttonFont,self.runDigFunc, cornerRad=10)
+        self.runDigButton.grid(row=1, column=5, columnspan=3)
+
+        self.runAnaButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nAnalog Scan", self.buttonFont,self.runAnaFunc, cornerRad=10)
+        self.runAnaButton.grid(row=2, column=5, columnspan=3)
+
+        self.runThreshButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nThreshold Scan HD", self.buttonFont,self.runThreshFunc, cornerRad=10)
+        self.runThreshButton.grid(row=3, column=5, columnspan=3)
+
+        self.runNoiseScanButton = myButton(self,'#ffd449','#e0ac00' , '#0d0b1e', 200, 60, "Run\nNoise Scan", self.buttonFont,self.runNoiseScanFunc, cornerRad=10)
+        self.runNoiseScanButton.grid(row=4, column=5, columnspan=3)
+
+        self.runDiscScanButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nDisconnected Bump Scan", self.buttonFont,self.runDiscBumpFunc, cornerRad=10)
+        self.runDiscScanButton.grid(row=5, column=5, columnspan=3)
+
+        self.runMergedScanButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nMerged Bump Scan", self.buttonFont,self.runMergedBumpFunc, cornerRad=10)
+        self.runMergedScanButton.grid(row=6, column=5, columnspan=3)
+
+        self.runZeroBiasScanButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Zero Bias\nThreshold Scan", self.buttonFont,self.runZeroBiasFunc, cornerRad=10)
+        self.runZeroBiasScanButton.grid(row=7, column=5, columnspan=3)
+
+        self.runSourceScanButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\n50 min. Source Scan", self.buttonFont,self.runSourceFunc, cornerRad=10)
+        self.runSourceScanButton.grid(row=8, column=5, columnspan=3)
+
+    def runDigFunc(self):
+        self.app.runDigPFA()
+
+    def runAnaFunc(self):
+        self.app.runAnaPFA()
+
+    def runThreshFunc(self):
+        self.app.runThreshPFA()
+    
+    def runNoiseScanFunc(self):
+        self.app.runNoiseScanPFA()
+
+    def runDiscBumpFunc(self):
+        self.app.runDiscBumpScanPFA()
+
+    def runMergedBumpFunc(self):
+        self.app.runMergedBumpScanPFA()
+
+    def runZeroBiasFunc(self):
+        self.app.runZeroBiasPFA()
+
+    def runSourceFunc(self):
+        self.app.runSourceScan()
 
 class Yarr_Selection_Bar(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):

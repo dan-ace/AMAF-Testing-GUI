@@ -143,6 +143,51 @@ class App(ctk.CTk):
     def runAllMHT(self):
         print("Running full MHT scan procedure!")
 
+    def clearChipConfigTUN(self):
+        print("Clearing Chip Config before Tuning!")
+
+    def runThreshHrTUN(self):
+        print("Running Threshold Scan HR for TUN!")
+
+    def runPreTotScanTUN(self):
+        print("Running Pre-Tune TOT Scan for TUN!")
+
+    def tuneGlobalThreshTUN(self):
+        print("Tuning Global Threshold for TUN!")
+
+    def tunePixelThreshTUN(self):
+        print("Tuning Pixel Threshold for TUN!")
+
+    def runThreshHdTUN(self):
+        print("Running Threshold Scan HD for TUN!")
+
+    def runPostTotScanTUN(self):
+        print("Running Post-Tune TOT Scan for TUN!")
+
+    def runDigPFA(self):
+        print("Running Digital Scan for PFA!")
+
+    def runAnaPFA(self):
+        print("Running Analog Scan for PFA!")
+
+    def runThreshPFA(self):
+        print("Running Threshold Scan HD for PFA!")
+
+    def runNoiseScanPFA(self):
+        print("Running Noise Scan for PFA!")
+
+    def runDiscBumpScanPFA(self):
+        print("Running Disconnected Bump Scan for PFA!")
+
+    def runMergedBumpScanPFA(self):
+        print("Running Merged Bump Scan for PFA!")
+
+    def runZeroBiasPFA(self):
+        print("Running Zero Bias Threshold Scan for PFA!")
+
+    def runSourceScan(self):
+        print("Running Source Scan for PFA!")
+
     def onEnter1(self,event, custom_button):
         self.configure(fg_color="#f5efed")
         if not custom_button.is_clicked:
