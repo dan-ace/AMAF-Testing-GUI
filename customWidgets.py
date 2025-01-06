@@ -188,7 +188,7 @@ class myButton():
             self.functCommand()
 
 class myLabel():
-    def __init__(self, parent, color, width, height, varText, font):
+    def __init__(self, parent, color, width, height, varText, font, fg_color=None):
 
         self.parent=parent
         self.varText=varText
@@ -196,12 +196,22 @@ class myLabel():
         self.width=width
         self.height=height
         self.font=font
-        self.label = ctk.CTkLabel(parent,
+        self.fg_color=fg_color
+        if not self.fg_color:
+            self.label = ctk.CTkLabel(parent,
                                   text=self.varText,
                                   text_color=self.color,
                                   width=self.width,
                                   height=self.height,
                                   font=self.font)
+        else:
+            self.label = ctk.CTkLabel(parent,
+                                  text=self.varText,
+                                  text_color=self.color,
+                                  width=self.width,
+                                  height=self.height,
+                                  font=self.font,
+                                  fg_color=self.fg_color)
 
 
     def grid(self, **kwargs):

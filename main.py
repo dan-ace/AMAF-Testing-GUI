@@ -188,6 +188,36 @@ class App(ctk.CTk):
     def runSourceScan(self):
         print("Running Source Scan for PFA!")
 
+    def runIV(self):
+        print("Running IV Scan for MQT!")
+
+    def runADC(self):
+        print("Running ADC Calibration for MQT!")
+
+    def runAnalogReadback(self):
+        print("Running Analog Readback for MQT!")
+
+    def runSLDO(self):
+        print("Running SLDO for MQT!")
+
+    def runVcal(self):
+        print("Runninng V-Cal Calibration for MQT!")
+
+    def runDataTrans(self):
+        print("Running Data Transmission for MQT!")
+
+    def runInjectCap(self):
+        print("Running Injection Capacitance for MQT!")
+
+    def runLP(self):
+        print("Running Low Power Mode for MQT!")
+
+    def runOVP(self):
+        print("Running Over-Voltage Protection for MQT!")
+
+    def runUndershunt(self):
+        print("Running Undershunt Protection for MQT!")
+
     def onEnter1(self,event, custom_button):
         self.configure(fg_color="#f5efed")
         if not custom_button.is_clicked:
