@@ -400,7 +400,7 @@ class Yarr_PFA_Frame(ctk.CTkFrame):
         self.reTune_ZeroBias_ResetLabel.grid(row=7,column=3,sticky='w')
         self.reTune_ZeroBias_ResetArrow.grid(row=7,column=4)
 
-        self.sourceScanLabel = myLabel(self, '#0d0b1e', 100, 30, "50 min. Source Scan ", self.customFont)
+        self.sourceScanLabel = myLabel(self, '#f8333c', 100, 30, "50 min. Source Scan ", self.customFont)
         self.sourceScanArrow = myLabel(self, '#0d0b1e', 100, 30, "-------------------------> ", self.customFont)
         self.sourceScanLabel.grid(row=8, column=3, sticky='w')
         self.sourceScanArrow.grid(row=8, column=4, sticky='w')
@@ -426,7 +426,7 @@ class Yarr_PFA_Frame(ctk.CTkFrame):
         self.runZeroBiasScanButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Zero Bias\nThreshold Scan", self.buttonFont,self.runZeroBiasFunc, cornerRad=10)
         self.runZeroBiasScanButton.grid(row=7, column=5, columnspan=3)
 
-        self.runSourceScanButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\n50 min. Source Scan", self.buttonFont,self.runSourceFunc, cornerRad=10)
+        self.runSourceScanButton = myButton(self,'#f8333c','#c50711', '#0d0b1e', 200, 60, "Run\n50 min. Source Scan", self.buttonFont,self.runSourceFunc, cornerRad=10)
         self.runSourceScanButton.grid(row=8, column=5, columnspan=3)
 
     def runDigFunc(self):
@@ -510,32 +510,79 @@ class Yarr_AllTests_Frame(ctk.CTkFrame):
     def __init__(self, parent, app, **kwargs):
         super().__init__(parent, fg_color='#f5efed', corner_radius=2, **kwargs)
 
-        self.customFont = ctk.CTkFont("Roboto",20)
+        self.customFont = ctk.CTkFont("Roboto",30)
+        self.buttonFont = ctk.CTkFont("Roboto",20)
 
         self.app=app
 
-        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8, 9, 10), weight=1)
+        self.grid_rowconfigure((0,1,2,3,4,5,6,7,8), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10), weight=1)
-
-        
-        self.TestFrame = Yarr_Test_Frame(self)
 
         self.selectModuleLabel = myLabel(self, "#0d0b1e", 100, 20, "Please select Module: ", self.customFont)
         self.moduleSelection = ctk.CTkOptionMenu(self,values=["ANL_ITkPix_"+str(i) for i in range(1,46)],font=self.customFont)
+        self.selectModuleLabel.grid(row=0,column=3,sticky='w')
+        self.moduleSelection.grid(row=0,column=4)
 
-        self.askForLocalDBLabel = myLabel(self, "#0d0b1e", 100, 20, "|       Upload to Local DB?: ", self.customFont)
+        self.askForLocalDBLabel = myLabel(self, "#0d0b1e", 100, 20, "  |  Upload to Local DB?: ", self.customFont)
         self.askForLocalDBVar = tkinter.IntVar(value=0)
         self.askForLocalDB_Yes = ctk.CTkRadioButton(self, text="Yes", variable=self.askForLocalDBVar, value=1, font=self.customFont)
         self.askForLocalDB_No = ctk.CTkRadioButton(self, text="No", variable=self.askForLocalDBVar, value=0, font=self.customFont)
 
-        self.selectModuleLabel.grid(row=0, column=1, columnspan=4, sticky="w")
-        self.moduleSelection.grid(row=0, column=2, columnspan=3)
-        self.askForLocalDBLabel.grid(row=0, column=4, columnspan=3)
-        self.askForLocalDB_Yes.grid(row=0, column=6, columnspan=3)
-        self.askForLocalDB_No.grid(row=0, column=7, columnspan=3)
+        self.askForLocalDBLabel.grid(row=0,column=5,sticky='w')
+        self.askForLocalDB_Yes.grid(row=0,column=6)
+        self.askForLocalDB_No.grid(row=0,column=7)
+
+        self.allMHTsLabel = myLabel(self, '#0d0b1e', 100,30,"Run All MHT Scans ", self.customFont)
+        self.allMHTsArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
+        self.allMHTsLabel.grid(row=1,column=3,sticky='w')
+        self.allMHTsArrow.grid(row=1,column=4)
+
+        self.allTUNsLabel = myLabel(self, '#0d0b1e', 100,30,"Run All TUN Scans ", self.customFont)
+        self.allTUNsArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
+        self.allTUNsLabel.grid(row=2,column=3,sticky='w')
+        self.allTUNsArrow.grid(row=2,column=4)
+
+        self.allPFAsLabel = myLabel(self, '#0d0b1e', 100,30,"Run All PFA Scans ", self.customFont)
+        self.allPFAsArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
+        self.allPFAsArrowSplit = myLabel(self, "#0d0b1e", 100, 30, "|", ctk.CTkFont("Roboto",40))
+        self.allPFAsArrowSplit2 = myLabel(self, "#0d0b1e", 100, 30, "|", ctk.CTkFont("Roboto",40))
+        self.allPFAsArrow2 = myLabel(self, "#0d0b1e", 100,30,"---------------->", self.customFont)
+        self.allPFAsLabel.grid(row=3,column=3,sticky='w')
+        self.allPFAsArrow.grid(row=3,column=4)
+        self.allPFAsArrowSplit.grid(row=3,column=4,sticky="s")
+        self.allPFAsArrowSplit2.grid(row=4, column=4,sticky='n')
+        self.allPFAsArrow2.grid(row=4, column=4, sticky='e')
+
+        self.runMhtButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nMHT Scans ", self.buttonFont,self.runMhtFunc, cornerRad=10)
+        self.runMhtButton.grid(row=1, column=5, columnspan=3)
+
+        self.runTunButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nTUN Scans ", self.buttonFont,self.runTunFunc, cornerRad=10)
+        self.runTunButton.grid(row=2, column=5, columnspan=3)
+
+        self.runPfaNoSourceButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nPFA Scans\n(Without Source Scan)", self.buttonFont,self.runPfaNoSourceFunc, cornerRad=10)
+        self.runPfaNoSourceButton.grid(row=3, column=5, columnspan=3)
+
+        self.runPfaWithSourceButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nPFA Scans\n(With Source Scan)", self.buttonFont,self.runPfaWithSourceFunc, cornerRad=10)
+        self.runPfaWithSourceButton.grid(row=4, column=5, columnspan=3)
+
+    def runMhtFunc(self):
+        self.app.runAllMHT()
+
+    def runTunFunc(self):
+        self.app.runAllTUN()
+
+    def runPfaNoSourceFunc(self):
+        self.app.runAllPfaNoSource()
+
+    def runPfaWithSourceFunc(self):
+        self.app.runAllPfaWithSource()
+
+        
+        #self.TestFrame = Yarr_Test_Frame(self)
+
 
         #self.TestFrameTitle.grid(row=1, column=1)
-        self.TestFrame.grid(row=1, column=1, columnspan=10, rowspan=5, sticky="nesw")
+        #self.TestFrame.grid(row=1, column=1, columnspan=10, rowspan=5, sticky="nesw")
 
         #self.runSelectMHTTests = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run Selected\nMHT Tests", self.customFont,parent.moveToChip1, cornerRad=10)
         #self.runAllMHTTests = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run All\nMHT Tests", self.customFont,parent.moveToChip1, cornerRad=10)
@@ -606,86 +653,84 @@ class MQT_Frame(ctk.CTkFrame):
         self.askForLocalDB_No.grid(row=0,column=7)
 
         self.ivLabel = myLabel(self, "#0d0b1e", 100, 30, "IV Measure ", self.customFont)
-        self.ivArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.ivArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.ivLabel.grid(row=1,column=3,sticky='w')
         self.ivArrow.grid(row=1,column=4)
 
         self.adcLabel = myLabel(self, "#0d0b1e", 100, 30, "ADC Calibration ", self.customFont)
-        self.adcArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.adcArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.adcLabel.grid(row=2,column=3,sticky='w')
         self.adcArrow.grid(row=2,column=4)
 
         self.anaReadBackLabel = myLabel(self, "#0d0b1e", 100, 30, "Analog Readback ", self.customFont)
-        self.anaReadBackArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.anaReadBackArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.anaReadBackLabel.grid(row=3,column=3,sticky='w')
         self.anaReadBackArrow.grid(row=3,column=4)
 
         self.sldoLabel = myLabel(self, "#0d0b1e", 100, 30, "SLDO ", self.customFont)
-        self.sldoArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.sldoArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.sldoLabel.grid(row=4,column=3,sticky='w')
         self.sldoArrow.grid(row=4,column=4)
 
         self.vCalLabel = myLabel(self, "#0d0b1e", 100, 30, "VCAL Calibration ", self.customFont)
-        self.vCalArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.vCalArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.vCalLabel.grid(row=5,column=3,sticky='w')
         self.vCalArrow.grid(row=5,column=4)
 
         self.dataTransmissionLabel = myLabel(self, "#0d0b1e", 100, 30, "Data Transmission ", self.customFont)
-        self.dataTransmissionArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.dataTransmissionArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.dataTransmissionLabel.grid(row=6,column=3,sticky='w')
         self.dataTransmissionArrow.grid(row=6,column=4)
 
         self.injectCapLabel = myLabel(self, "#0d0b1e", 100, 30, "Injection Capacitance ", self.customFont)
-        self.injectCapArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.injectCapArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.injectCapLabel.grid(row=7,column=3,sticky='w')
         self.injectCapArrow.grid(row=7,column=4)
 
         self.lpLabel = myLabel(self, "#0d0b1e", 100, 30, "Low Power Mode ", self.customFont)
-        self.lpArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.lpArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.lpLabel.grid(row=8,column=3,sticky='w')
         self.lpArrow.grid(row=8,column=4)
 
         self.ovpLabel = myLabel(self, "#0d0b1e", 100, 30, "Over-Voltage Protection ", self.customFont)
-        self.ovpArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.ovpArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.ovpLabel.grid(row=9,column=3,sticky='w')
         self.ovpArrow.grid(row=9,column=4)
 
         self.underShuntLabel = myLabel(self, "#0d0b1e", 100, 30, "Undershunt Protection ", self.customFont)
-        self.underShuntArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
+        self.underShuntArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.underShuntLabel.grid(row=10,column=3,sticky='w')
         self.underShuntArrow.grid(row=10,column=4)
 
-        self.runIvButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nIV Scan ", self.buttonFont,parent.runIV, cornerRad=10)
+        self.runIvButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nIV Scan ", self.buttonFont,parent.runIV, cornerRad=10)
         self.runIvButton.grid(row=1, column=5, columnspan=3)
 
-        self.runAdcButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nADC Calibration ", self.buttonFont,parent.runADC, cornerRad=10)
+        self.runAdcButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nADC Calibration ", self.buttonFont,parent.runADC, cornerRad=10)
         self.runAdcButton.grid(row=2, column=5, columnspan=3)
 
-        self.runArButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nAnalog Readback ", self.buttonFont,parent.runAnalogReadback, cornerRad=10)
+        self.runArButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nAnalog Readback ", self.buttonFont,parent.runAnalogReadback, cornerRad=10)
         self.runArButton.grid(row=3, column=5, columnspan=3)
 
-        self.runSldoButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nSLDO ", self.buttonFont,parent.runSLDO, cornerRad=10)
+        self.runSldoButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nSLDO ", self.buttonFont,parent.runSLDO, cornerRad=10)
         self.runSldoButton.grid(row=4, column=5, columnspan=3)
 
-        self.runVcalButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nVCAL Calibration ", self.buttonFont,parent.runVcal, cornerRad=10)
+        self.runVcalButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nVCAL Calibration ", self.buttonFont,parent.runVcal, cornerRad=10)
         self.runVcalButton.grid(row=5, column=5, columnspan=3)
 
-        self.runDataTransButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nData Transmission", self.buttonFont,parent.runDataTrans, cornerRad=10)
+        self.runDataTransButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nData Transmission", self.buttonFont,parent.runDataTrans, cornerRad=10)
         self.runDataTransButton.grid(row=6, column=5, columnspan=3)
 
-        self.runInjectCapButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nInjection Capacitance", self.buttonFont,parent.runInjectCap, cornerRad=10)
+        self.runInjectCapButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nInjection Capacitance", self.buttonFont,parent.runInjectCap, cornerRad=10)
         self.runInjectCapButton.grid(row=7, column=5, columnspan=3)
 
-        self.runLpButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nLow Power Mode", self.buttonFont,parent.runLP, cornerRad=10)
+        self.runLpButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nLow Power Mode", self.buttonFont,parent.runLP, cornerRad=10)
         self.runLpButton.grid(row=8, column=5, columnspan=3)
 
-        self.runOvpButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nOver-Voltage Protection", self.buttonFont,parent.runOVP, cornerRad=10)
+        self.runOvpButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nOver-Voltage Protection", self.buttonFont,parent.runOVP, cornerRad=10)
         self.runOvpButton.grid(row=9, column=5, columnspan=3)
 
-        self.runUnderShuntButton = myButton(self,'#ffd449','#e0ac00', '#0d0b1e', 200, 60, "Run\nUndershunt Protection", self.buttonFont,parent.runUndershunt, cornerRad=10)
+        self.runUnderShuntButton = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 200, 60, "Run\nUndershunt Protection", self.buttonFont,parent.runUndershunt, cornerRad=10)
         self.runUnderShuntButton.grid(row=10, column=5, columnspan=3)
-
-
 
 class MQAT_Frame(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
