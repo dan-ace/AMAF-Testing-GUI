@@ -176,27 +176,27 @@ class Yarr_MHT_Frame(ctk.CTkFrame):
         self.askForLocalDB_Yes.grid(row=0,column=6)
         self.askForLocalDB_No.grid(row=0,column=7)
 
-        self.eyeDiagramLabel = myLabel(self, "#0d0b1e", 100, 30, "Eye Diagram ", self.customFont)
+        self.eyeDiagramLabel = myLabel(self, "#0d0b1e", 100, 30, "1. Eye Diagram ", self.customFont)
         self.eyeArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.eyeDiagramLabel.grid(row=1,column=3,sticky='w')
         self.eyeArrow.grid(row=1,column=4)
 
-        self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"Digital Scan ", self.customFont)
+        self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"2. Digital Scan ", self.customFont)
         self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.digitalScanLabel.grid(row=2,column=3,sticky='w')
         self.digArrow.grid(row=2,column=4)
 
-        self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Analog Scan ", self.customFont)
+        self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "3. Analog Scan ", self.customFont)
         self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.analogScanLabel.grid(row=3,column=3,sticky='w')
         self.anaArrow.grid(row=3,column=4)
 
-        self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100, 30, "Threshold Scan HR ", self.customFont)
+        self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100, 30, "4. Threshold Scan HR ", self.customFont)
         self.threshArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.threshScanHrLabel.grid(row=4,column=3,sticky='w')
         self.threshArrow.grid(row=4,column=4)
 
-        self.totScanLabel = myLabel(self, '#0d0b1e', 100, 30, "TOT Scan ", self.customFont)
+        self.totScanLabel = myLabel(self, '#0d0b1e', 100, 30, "5. TOT Scan ", self.customFont)
         self.totArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.totScanLabel.grid(row=5,column=3,sticky='w')
         self.totArrow.grid(row=5,column=4)
@@ -260,37 +260,37 @@ class Yarr_TUN_Frame(ctk.CTkFrame):
         self.askForLocalDB_Yes.grid(row=0,column=6)
         self.askForLocalDB_No.grid(row=0,column=7)
 
-        self.clearChipConfigLabel = myLabel(self, "#f8333c", 100, 30, "Clear Chip Config ", self.customFont)
+        self.clearChipConfigLabel = myLabel(self, "#f8333c", 100, 30, "1. Clear Chip Config ", self.customFont)
         self.clearChipConfigArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.clearChipConfigLabel.grid(row=1,column=3,sticky='w')
         self.clearChipConfigArrow.grid(row=1,column=4)
 
-        self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100,30,"Threshold Scan HR ", self.customFont)
+        self.threshScanHrLabel = myLabel(self, '#0d0b1e', 100,30,"2. Threshold Scan HR ", self.customFont)
         self.threshHrArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.threshScanHrLabel.grid(row=2,column=3,sticky='w')
         self.threshHrArrow.grid(row=2,column=4)
 
-        self.preTotScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Pre-Tune TOT Scan ", self.customFont)
+        self.preTotScanLabel = myLabel(self, '#0d0b1e', 100, 30, "3. Pre-Tune TOT Scan ", self.customFont)
         self.preTotArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.preTotScanLabel.grid(row=3,column=3,sticky='w')
         self.preTotArrow.grid(row=3,column=4)
 
-        self.tuneGlobalThreshLabel = myLabel(self, '#0d0b1e', 100, 30, "Tune Global Threshold ", self.customFont)
+        self.tuneGlobalThreshLabel = myLabel(self, '#0d0b1e', 100, 30, "4. Tune Global Threshold ", self.customFont)
         self.tuneGlobalThreshArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.tuneGlobalThreshLabel.grid(row=4,column=3,sticky='w')
         self.tuneGlobalThreshArrow.grid(row=4,column=4)
 
-        self.tunePixelThreshLabel = myLabel(self, '#0d0b1e', 100, 30, "Tune Pixel Threshold ", self.customFont)
+        self.tunePixelThreshLabel = myLabel(self, '#0d0b1e', 100, 30, "5. Tune Pixel Threshold ", self.customFont)
         self.tunePixelThreshArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.tunePixelThreshLabel.grid(row=5,column=3,sticky='w')
         self.tunePixelThreshArrow.grid(row=5,column=4)
 
-        self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100,30,"Threshold Scan HD ", self.customFont)
+        self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100,30,"6. Threshold Scan HD ", self.customFont)
         self.threshHdArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.threshScanHdLabel.grid(row=6,column=3,sticky='w')
         self.threshHdArrow.grid(row=6,column=4)
 
-        self.postTotScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Post-Tune TOT Scan ", self.customFont)
+        self.postTotScanLabel = myLabel(self, '#0d0b1e', 100, 30, "7. Post-Tune TOT Scan ", self.customFont)
         self.postTotArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.postTotScanLabel.grid(row=7,column=3,sticky='w')
         self.postTotArrow.grid(row=7,column=4)
@@ -363,44 +363,44 @@ class Yarr_PFA_Frame(ctk.CTkFrame):
         self.askForLocalDB_Yes.grid(row=0,column=6)
         self.askForLocalDB_No.grid(row=0,column=7)
 
-        self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"Digital Scan ", self.customFont)
+        self.digitalScanLabel = myLabel(self, '#0d0b1e', 100,30,"1. Digital Scan ", self.customFont)
         self.digArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.digitalScanLabel.grid(row=1,column=3,sticky='w')
         self.digArrow.grid(row=1,column=4)
 
-        self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Analog Scan ", self.customFont)
+        self.analogScanLabel = myLabel(self, '#0d0b1e', 100, 30, "2. Analog Scan ", self.customFont)
         self.anaArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.analogScanLabel.grid(row=2,column=3,sticky='w')
         self.anaArrow.grid(row=2,column=4)
 
-        self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100, 30, "Threshold Scan HD ", self.customFont)
+        self.threshScanHdLabel = myLabel(self, '#0d0b1e', 100, 30, "3. Threshold Scan HD ", self.customFont)
         self.threshHdArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.threshScanHdLabel.grid(row=3,column=3,sticky='w')
         self.threshHdArrow.grid(row=3,column=4)
 
-        self.noiseScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Noise Scan ", self.customFont)
+        self.noiseScanLabel = myLabel(self, '#0d0b1e', 100, 30, "4. Noise Scan ", self.customFont)
         self.noiseScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.noiseScanLabel.grid(row=4,column=3,sticky='w')
         self.noiseScanArrow.grid(row=4,column=4)
 
-        self.discBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Disconnected Bump Scan ", self.customFont)
+        self.discBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "5. Disconnected Bump Scan ", self.customFont)
         self.discBumpScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.discBumpScanLabel.grid(row=5,column=3,sticky='w')
         self.discBumpScanArrow.grid(row=5,column=4)
 
-        self.mergedBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "Merged Bump Scan ", self.customFont)
+        self.mergedBumpScanLabel = myLabel(self, '#0d0b1e', 100, 30, "6. Merged Bump Scan ", self.customFont)
         self.mergedBumpScanArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.mergedBumpScanLabel.grid(row=6,column=3,sticky='w')
         self.mergedBumpScanArrow.grid(row=6,column=4)
 
         self.reTune_ZeroBias_ResetLabel = myLabel(self, '#0d0b1e', 100, 30, 
-                                                  "Retune Pixel Threshold/\nZero Bias Thresh. Scan/\nReset Chip Configs",
+                                                  "7. Retune Pixel Threshold/\nZero Bias Thresh. Scan/\nReset Chip Configs",
                                                   self.customFont)
         self.reTune_ZeroBias_ResetArrow = myLabel(self, "#0d0b1e", 100, 30, "-------------------------> ", self.customFont)
         self.reTune_ZeroBias_ResetLabel.grid(row=7,column=3,sticky='w')
         self.reTune_ZeroBias_ResetArrow.grid(row=7,column=4)
 
-        self.sourceScanLabel = myLabel(self, '#f8333c', 100, 30, "50 min. Source Scan ", self.customFont)
+        self.sourceScanLabel = myLabel(self, '#f8333c', 100, 30, "8. 50 min. Source Scan ", self.customFont)
         self.sourceScanArrow = myLabel(self, '#0d0b1e', 100, 30, "-------------------------> ", self.customFont)
         self.sourceScanLabel.grid(row=8, column=3, sticky='w')
         self.sourceScanArrow.grid(row=8, column=4, sticky='w')
@@ -544,8 +544,8 @@ class Yarr_AllTests_Frame(ctk.CTkFrame):
 
         self.allPFAsLabel = myLabel(self, '#0d0b1e', 100,30,"Run All PFA Scans ", self.customFont)
         self.allPFAsArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
-        self.allPFAsArrowSplit = myLabel(self, "#0d0b1e", 100, 30, "|", ctk.CTkFont("Roboto",40))
-        self.allPFAsArrowSplit2 = myLabel(self, "#0d0b1e", 100, 30, "|", ctk.CTkFont("Roboto",40))
+        self.allPFAsArrowSplit = myLabel(self, "#0d0b1e", 100, 30, "|", ctk.CTkFont("Roboto",45))
+        self.allPFAsArrowSplit2 = myLabel(self, "#0d0b1e", 100, 30, "|", ctk.CTkFont("Roboto",45))
         self.allPFAsArrow2 = myLabel(self, "#0d0b1e", 100,30,"---------------->", self.customFont)
         self.allPFAsLabel.grid(row=3,column=3,sticky='w')
         self.allPFAsArrow.grid(row=3,column=4)
@@ -652,52 +652,52 @@ class MQT_Frame(ctk.CTkFrame):
         self.askForLocalDB_Yes.grid(row=0,column=6)
         self.askForLocalDB_No.grid(row=0,column=7)
 
-        self.ivLabel = myLabel(self, "#0d0b1e", 100, 30, "IV Measure ", self.customFont)
+        self.ivLabel = myLabel(self, "#0d0b1e", 100, 30, "1. IV Measure ", self.customFont)
         self.ivArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.ivLabel.grid(row=1,column=3,sticky='w')
         self.ivArrow.grid(row=1,column=4)
 
-        self.adcLabel = myLabel(self, "#0d0b1e", 100, 30, "ADC Calibration ", self.customFont)
+        self.adcLabel = myLabel(self, "#0d0b1e", 100, 30, "2. ADC Calibration ", self.customFont)
         self.adcArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.adcLabel.grid(row=2,column=3,sticky='w')
         self.adcArrow.grid(row=2,column=4)
 
-        self.anaReadBackLabel = myLabel(self, "#0d0b1e", 100, 30, "Analog Readback ", self.customFont)
+        self.anaReadBackLabel = myLabel(self, "#0d0b1e", 100, 30, "3. Analog Readback ", self.customFont)
         self.anaReadBackArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.anaReadBackLabel.grid(row=3,column=3,sticky='w')
         self.anaReadBackArrow.grid(row=3,column=4)
 
-        self.sldoLabel = myLabel(self, "#0d0b1e", 100, 30, "SLDO ", self.customFont)
+        self.sldoLabel = myLabel(self, "#0d0b1e", 100, 30, "4. SLDO ", self.customFont)
         self.sldoArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.sldoLabel.grid(row=4,column=3,sticky='w')
         self.sldoArrow.grid(row=4,column=4)
 
-        self.vCalLabel = myLabel(self, "#0d0b1e", 100, 30, "VCAL Calibration ", self.customFont)
+        self.vCalLabel = myLabel(self, "#0d0b1e", 100, 30, "5. VCAL Calibration ", self.customFont)
         self.vCalArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.vCalLabel.grid(row=5,column=3,sticky='w')
         self.vCalArrow.grid(row=5,column=4)
 
-        self.dataTransmissionLabel = myLabel(self, "#0d0b1e", 100, 30, "Data Transmission ", self.customFont)
+        self.dataTransmissionLabel = myLabel(self, "#0d0b1e", 100, 30, "6. Data Transmission ", self.customFont)
         self.dataTransmissionArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.dataTransmissionLabel.grid(row=6,column=3,sticky='w')
         self.dataTransmissionArrow.grid(row=6,column=4)
 
-        self.injectCapLabel = myLabel(self, "#0d0b1e", 100, 30, "Injection Capacitance ", self.customFont)
+        self.injectCapLabel = myLabel(self, "#0d0b1e", 100, 30, "7. Injection Capacitance ", self.customFont)
         self.injectCapArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.injectCapLabel.grid(row=7,column=3,sticky='w')
         self.injectCapArrow.grid(row=7,column=4)
 
-        self.lpLabel = myLabel(self, "#0d0b1e", 100, 30, "Low Power Mode ", self.customFont)
+        self.lpLabel = myLabel(self, "#0d0b1e", 100, 30, "8. Low Power Mode ", self.customFont)
         self.lpArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.lpLabel.grid(row=8,column=3,sticky='w')
         self.lpArrow.grid(row=8,column=4)
 
-        self.ovpLabel = myLabel(self, "#0d0b1e", 100, 30, "Over-Voltage Protection ", self.customFont)
+        self.ovpLabel = myLabel(self, "#0d0b1e", 100, 30, "9. Over-Voltage Protection ", self.customFont)
         self.ovpArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.ovpLabel.grid(row=9,column=3,sticky='w')
         self.ovpArrow.grid(row=9,column=4)
 
-        self.underShuntLabel = myLabel(self, "#0d0b1e", 100, 30, "Undershunt Protection ", self.customFont)
+        self.underShuntLabel = myLabel(self, "#0d0b1e", 100, 30, "10. Undershunt Protection ", self.customFont)
         self.underShuntArrow = myLabel(self, "#0d0b1e", 100, 30, "---------------------------------> ", self.customFont)
         self.underShuntLabel.grid(row=10,column=3,sticky='w')
         self.underShuntArrow.grid(row=10,column=4)
@@ -773,21 +773,93 @@ class DCS_Switch_Frame(ctk.CTkFrame):
         super().__init__(parent, fg_color='#0d0b1e', corner_radius=2, **kwargs)
 
         self.customFont = ctk.CTkFont("Roboto",20)
+        self.titleFont = ctk.CTkFont("Roboto",25)
 
         self.grid_rowconfigure((0,1,2,3,4,5,6,7,8,9,10,11,12), weight=1)
         self.grid_columnconfigure((0,1,2,3,4,5,6,7,8,9,10,11), weight=1)
 
+        self.lvTitle = myLabel(self, "#f5efed", 100, 20, "Low Voltage", self.titleFont)
+        self.lvUnderscore = myLabel(self, "#f5efed", 100, 1, "----------------------", self.titleFont, fg_color='transparent')
+        self.hvTitle = myLabel(self, '#f5efed', 100, 20, "High Voltage", self.titleFont)
+        self.hvUnderscore = myLabel(self, "#f5efed", 100, 1, "----------------------", self.titleFont, fg_color='transparent')
+        self.peltierTitle =  myLabel(self, '#f5efed', 100, 10, "Peltier", self.titleFont)
+        self.peltierUnderscore = myLabel(self, "#f5efed", 100, 1, "-----------------------", self.titleFont, fg_color='transparent')
+        self.chillerTitle = myLabel(self, '#f5efed', 100, 10, "Chiller", self.titleFont)
+        self.chillerUnderscore = myLabel(self, "#f5efed", 100, 1, "----------------------", self.titleFont, fg_color='transparent')
+
+        self.lvTitle.grid(row=0, column=0, sticky="nw", padx=15)
+        self.lvUnderscore.grid(row=0, column=0, sticky='sw', padx=15)
+        self.hvTitle.grid(row=3, column=0, sticky='nw', padx=15)
+        self.hvUnderscore.grid(row=3,column=0, sticky='sw', padx=15)
+        self.peltierTitle.grid(row=6, column=0, sticky='nw')
+        self.peltierUnderscore.grid(row=6, column=0, sticky='sw', padx=15)
+        self.chillerTitle.grid(row=9, column=0, sticky='nw')
+        self.chillerUnderscore.grid(row=9, column=0, sticky='sw', padx=15)
+
         self.LV_switch = mySwitch(self, text="LV Switch", text_color='#f5efed',switch_width=80,switch_height=30)
-        self.LV_switch.grid(row=0, column=0, columnspan=8,sticky='nesw',padx=5)
-
         self.HV_switch = mySwitch(self, text="HV Switch", text_color='#f5efed',switch_width=80,switch_height=30)
-        self.HV_switch.grid(row=3, column=0, columnspan=8,sticky='nesw',padx=5)
-
         self.Peltier_switch = mySwitch(self, text="Peltier Switch", text_color='#f5efed', switch_width=80, switch_height=30)
-        self.Peltier_switch.grid(row=6, column=0, columnspan=8, sticky='nesw', padx=5)
-
         self.Chiller_switch = mySwitch(self, text="Chiller Switch", text_color='#f5efed', switch_width=80, switch_height=30)
-        self.Chiller_switch.grid(row=9, column=0, columnspan=8, sticky='nesw', padx=5)
+
+        self.lvSwitchOn = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 80, 30, "On", self.customFont, functCommand=None, cornerRad=2)
+        self.lvSwitchOff = myButton(self,'#f8333c','#c50711', '#0d0b1e', 80, 30, "Off", self.customFont, functCommand=None, cornerRad=2)
+        
+        self.hvSwitchOn = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 80, 30, "On", self.customFont, functCommand=None, cornerRad=2)
+        self.hvSwitchOff = myButton(self,'#f8333c','#c50711', '#0d0b1e', 80, 30, "Off", self.customFont, functCommand=None, cornerRad=2)
+        
+        self.peltierSwitchOn = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 80, 30, "On", self.customFont, functCommand=None, cornerRad=2)
+        self.peltierSwitchOff = myButton(self,'#f8333c','#c50711', '#0d0b1e', 80, 30, "Off", self.customFont, functCommand=None, cornerRad=2)
+        
+        self.chillerSwitchOn = myButton(self,'#61d095','#2f9d62', '#0d0b1e', 80, 30, "On", self.customFont, functCommand=None, cornerRad=2)
+        self.chillerSwitchOff = myButton(self,'#f8333c','#c50711', '#0d0b1e', 80, 30, "Off", self.customFont, functCommand=None, cornerRad=2)
+
+        self.lvSwitchOn.grid(row=1, column=0, sticky='nw', padx=10)
+        self.lvSwitchOff.grid(row=1, column=0, sticky='ne', padx=10)
+        self.hvSwitchOn.grid(row=4, column=0, sticky='nw', padx=10)
+        self.hvSwitchOff.grid(row=4, column=0, sticky='ne', padx=10)
+        self.peltierSwitchOn.grid(row=7, column=0, sticky='nw', padx=10)
+        self.peltierSwitchOff.grid(row=7, column=0, sticky='ne', padx=10)
+        self.chillerSwitchOn.grid(row=10, column=0, sticky='nw', padx=10)
+        self.chillerSwitchOff.grid(row=10, column=0, sticky='ne', padx=10)
+ 
+        #self.LV_switch.grid(row=1, column=0,sticky='nw',padx=5)
+        #self.HV_switch.grid(row=4, column=0,sticky='nw',padx=5)
+        #self.Peltier_switch.grid(row=7, column=0, sticky='nw', padx=5)
+        #self.Chiller_switch.grid(row=10, column=0, sticky='nw', padx=5)
+
+        self.lvDivider = myLabel(self, "#f5efed", 100, 20, "|", ctk.CTkFont("Roboto",30))
+        self.hvDivider = myLabel(self, "#f5efed", 100, 20, "|", ctk.CTkFont("Roboto",30))
+        self.peltierDivider = myLabel(self, "#f5efed", 100, 20, "|", ctk.CTkFont("Roboto",30))
+        self.chillerDivider = myLabel(self, "#f5efed", 100, 20, "|", ctk.CTkFont("Roboto",30))
+
+        self.lvDivider.grid(row=1, column=1, sticky='nw')
+        self.hvDivider.grid(row=4, column=1, sticky='nw')
+        self.peltierDivider.grid(row=7, column=1, sticky='nw')
+        self.chillerDivider.grid(row=10, column=1, sticky='nw')
+
+        self.lvOptionsVar = ctk.StringVar()
+        self.hvOptionsVar = ctk.StringVar()
+        self.peltierOptionsVar = ctk.StringVar()
+        self.chillerOptionsVar = ctk.StringVar()
+
+        self.lvOptions = ctk.CTkOptionMenu(self, values=["2.1 V, 5.88 A", "2.1 V, 6.60 A"], variable=self.lvOptionsVar, font=self.customFont, width=150)
+        self.hvOptions = ctk.CTkComboBox(self, values=["80", "120"], variable=self.hvOptionsVar, font=self.customFont, width=100)
+        self.peltierOptions = ctk.CTkEntry(self, textvariable=self.peltierOptionsVar, font=self.customFont, width=60)
+        self.chillerOptions = ctk.CTkEntry(self, textvariable=self.chillerOptionsVar, font=self.customFont, width=60)
+
+        self.lvOptions.grid(row=1, column=2, sticky='ne')
+        self.hvOptions.grid(row=4, column=2, sticky='ne')
+        self.peltierOptions.grid(row=7, column=2, sticky='ne')
+        self.chillerOptions.grid(row=10, column=2, sticky='ne')
+
+        self.hvText = myLabel(self, '#f5efed', 50,20, "V", self.customFont)
+        self.peltierText = myLabel(self, "#f5efed", 50,20, "V", self.customFont)
+        self.chillerText = myLabel(self, "#f5efed", 50,20,"°C", self.customFont)
+
+        self.hvText.grid(row=4,column=3, sticky='nw')
+        self.peltierText.grid(row=7,column=3, sticky='nw')
+        self.chillerText.grid(row=10,column=3, sticky='nw')
+
 
 class SourceControl_Button_Frame(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
@@ -819,7 +891,7 @@ class SourceControl_Button_Frame(ctk.CTkFrame):
         self.moveToCenterButton.grid(row=7, column=5, columnspan=2, padx=10)
         self.returnSource.grid(row=10, column=5, columnspan=2, padx=10)
 
-class DCS_Title_Frame(ctk.CTkFrame):
+class DCS_Selection_Bar(ctk.CTkFrame):
     def __init__(self, parent, **kwargs):
         super().__init__(parent, fg_color='#0d0b1e', corner_radius=2, **kwargs)
 

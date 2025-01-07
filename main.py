@@ -35,8 +35,8 @@ class App(ctk.CTk):
         self.interlocksControlFrame = Interlocks_Control_Frame(parent=self)
         self.interlocksControlFrame.grid(row=1,column=0,rowspan=5, sticky='nesw')
 
-        self.dcsTitleFrame = DCS_Title_Frame(parent=self)
-        self.dcsTitleFrame.grid(row=0,column=0, sticky='nesw')
+        self.dcsSelectionBar = DCS_Selection_Bar(parent=self)
+        self.dcsSelectionBar.grid(row=0,column=0, sticky='nesw')
 
         self.dcsSwitchFrame = DCS_Switch_Frame(parent=self)
 

@@ -133,17 +133,7 @@ class myTitleButton2():
                 self.functCommand()
 
 class myButton():
-    def __init__(self,
-                 parent,
-                 color,
-                 hoverColor,
-                 textColor,
-                 width,
-                 height,
-                 varText,
-                 font,
-                 functCommand=None,
-                 cornerRad=10):
+    def __init__(self, parent, color, hoverColor, textColor, width, height, varText, font, functCommand=None, cornerRad=10):
         self.parent=parent
         self.varText=varText
         self.width=width
